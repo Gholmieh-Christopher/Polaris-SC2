@@ -1,1 +1,1 @@
-from .bot import CompetitiveBot
+from .src import CompetitiveBot

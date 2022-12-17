@@ -123,9 +123,9 @@ def run():
     else:
         # Local game
         print("Starting local game...")
-        run_game(sc2.maps.get(args.Map),
+        run_game(sc2.maps.get("AcropolisLE"),
                      [bot, Computer(Race[args.ComputerRace], Difficulty[args.ComputerDifficulty])],
-                     realtime=args.Realtime,
+                     realtime=True,
                      sc2_version=args.Sc2Version, )
 
 
