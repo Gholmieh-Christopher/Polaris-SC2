@@ -1,1 +1,1 @@
-from .src import CompetitiveBot
+from .main import PolarisSC2 as CompetitiveBot
