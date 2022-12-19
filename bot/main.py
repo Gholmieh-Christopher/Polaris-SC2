@@ -5,6 +5,9 @@
 # > Bot AI:
 from sc2.bot_ai import BotAI, Race
 
+# Managers:
+from .managers import TownhallManager
+
 # Classes:
 class PolarisSC2(BotAI):
     # Configuration:
@@ -18,7 +21,12 @@ class PolarisSC2(BotAI):
 
     # Functions:
     async def on_start(self) -> None:
-        pass
+        # Manager References:
+        self.TownhallManager: TownhallManager = TownhallManager()
+
+        # Installing Supervisors:
+        self.TownhallManager.assign_supervisor(self.townhalls.first)
 
     async def on_step(self, iteration: int) -> None:
-        pass
+        # Updating Managers:
+        self.TownhallManager.update_supervisors(self)
