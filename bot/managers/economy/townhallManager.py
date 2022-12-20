@@ -22,5 +22,10 @@ class TownhallManager(Manager):
         # Initialization:
         super().__init__(TownhallSupervisor)
 
+    # Functions:
     def on_assignment(self, unit: Unit, *args, **kwargs) -> None:
         logger.info("Assigned!")
+
+    def on_unit_death(self, identifier: int) -> None:
+        # Guardian Statement:
+        self.unassign_supervisor(identifier)

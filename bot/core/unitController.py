@@ -21,6 +21,4 @@ class UnitController:
 
     # Functions:
     def on_frame(self, AI: BotAI) -> None:
-        logger.info("on_frame function was called from unit controller.")
-
         return None
