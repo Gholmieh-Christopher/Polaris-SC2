@@ -16,5 +16,5 @@ class Supervisor:
         pass
 
     # Functions:
-    def update(self, AI: BotAI, *args, **kwargs) -> None:
+    def on_frame(self, AI: BotAI, *args, **kwargs) -> None:
         logger.info("Supervisor update function called.")

@@ -37,7 +37,7 @@ class Manager:
 
     def update_supervisors(self, AI: BotAI) -> None:
         for Supervisor in self.supervisors.values():
-            Supervisor.update(AI)
+            Supervisor.on_frame(AI)
 
     # Events:
     def on_unassignment(self, identifier: int) -> None:

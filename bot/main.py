@@ -5,6 +5,9 @@
 # > Bot AI:
 from sc2.bot_ai import BotAI, Race
 
+# > Unit:
+from sc2.unit import Unit
+
 # Managers:
 from .managers import TownhallManager
 
@@ -19,6 +22,16 @@ class PolarisSC2(BotAI):
     def __init__(self) -> None:
         pass
 
+    # Events:
+    async def on_building_construction_complete(self, unit: Unit) -> None:
+        # Installing Supervisors:
+        if unit.name == "CommandCenter":
+            self.TownhallManager.assign_supervisor(unit)
+
+    async def on_unit_destroyed(self, identifier: int) -> None:
+        # Updating Managers:
+        self.TownhallManager.on_unit_death(identifier)
+
     # Functions:
     async def on_start(self) -> None:
         # Manager References:
@@ -28,5 +41,5 @@ class PolarisSC2(BotAI):
         self.TownhallManager.assign_supervisor(self.townhalls.first)
 
     async def on_step(self, iteration: int) -> None:
-        # Updating Managers:
+        # Updating Supervisors:
         self.TownhallManager.update_supervisors(self)
