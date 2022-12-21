@@ -75,7 +75,6 @@ class TownhallSupervisor(Supervisor):
         )
 
         if not any(mineral_fields):
-            # TODO: Alllocate workers to refineries.
             refineries: Units = (
                 AI.structures.of_type(UnitTypeId.REFINERY)
                 .closer_than(10, townhall)
@@ -84,7 +83,6 @@ class TownhallSupervisor(Supervisor):
                 )
             )
             if not any(refineries):
-                # TODO: Something with worker, make harvester work at next base?
                 return None
 
             _refinery: Unit = refineries.closest_to(harvester)
