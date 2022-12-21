@@ -179,5 +179,3 @@ class TownhallSupervisor(Supervisor):
             # Main:
             if harvester_controller is not None:
                 harvester_controller.on_frame(AI)
-
-# PEN PINEAPPLE APPLE PEn
