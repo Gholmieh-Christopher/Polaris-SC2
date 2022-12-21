@@ -29,3 +29,6 @@ class TownhallManager(Manager):
     def on_unit_death(self, identifier: int) -> None:
         # Guardian Statement:
         self.unassign_supervisor(identifier)
+
+        for supervisor in self.supervisors.values():
+            supervisor.delete_entry(identifier)

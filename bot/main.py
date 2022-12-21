@@ -26,7 +26,7 @@ class PolarisSC2(BotAI):
     async def on_building_construction_complete(self, unit: Unit) -> None:
         # Installing Supervisors:
         if unit.name == "CommandCenter":
-            self.TownhallManager.assign_supervisor(unit)
+            self.TownhallManager.assign_supervisor(unit, self)
 
     async def on_unit_destroyed(self, identifier: int) -> None:
         # Updating Managers:
@@ -38,7 +38,7 @@ class PolarisSC2(BotAI):
         self.TownhallManager: TownhallManager = TownhallManager()
 
         # Installing Supervisors:
-        self.TownhallManager.assign_supervisor(self.townhalls.first)
+        self.TownhallManager.assign_supervisor(self.townhalls.first, self)
 
     async def on_step(self, iteration: int) -> None:
         # Updating Supervisors:

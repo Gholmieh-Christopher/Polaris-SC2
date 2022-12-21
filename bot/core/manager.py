@@ -31,7 +31,7 @@ class Manager:
         self.on_unassignment(identifier)
 
     def assign_supervisor(self, unit: Unit, *args, **kwargs) -> None:
-        self.supervisors[unit.tag] = self.Supervisor(*args, **kwargs)
+        self.supervisors[unit.tag] = self.Supervisor(unit, *args, **kwargs)
 
         self.on_assignment(unit, *args, **kwargs)
 
